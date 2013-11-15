@@ -1,0 +1,2788 @@
+/*   
+Theme Name: Idahoan Food Service
+Description: A custom WordPress theme for Idahoan Food Service
+Author: Foerstel creative + results
+Author URI: http://foerstel.com
+Version: 1
+*/
+
+/*
+	HTML5 Reset Wordpress Theme :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	
+	Eric Meyer					:: http://ericmeyer.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+	
+	Special thanks: The Wordpress theme owes its start to an empty theme authored 
+		by Chris Coyier & Jeff Starr: http://digwp.com
+	
+-------------------------------------------------------------------------------*/
+
+/* 
+  HTML5 ✰ Boilerplate 
+  
+  style.css contains a reset, font normalization and some base styles.
+  
+  credit is left where credit is due.
+  much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/* 
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+    display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+/* END RESET CSS */
+
+
+/* fonts.css from the YUI Library: developer.yahoo.com/yui/
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
+
+  There are three custom edits:
+   * remove arial, helvetica from explicit font stack
+   * we normalize monospace styles ourselves
+   * table font-size is reset in the HTML5 reset above so there is no need to repeat
+*/
+body { font:13px/1.231 sans-serif; *font-size:small; text-align: center; background: #a29c8e url(images/body-bg.jpg) top center no-repeat; } /* hack retained to preserve specificity */
+
+body.print {
+	background-color: #fff;
+	background-image: none;
+	color: #222;
+	padding: 2.5%;
+	text-align: left;
+}
+
+select, input, textarea, button { font:99% sans-serif; }
+
+/* normalize monospace sizing 
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+ 
+
+/* 
+ * minimal base styles 
+ */
+
+/*call the chunkfive Font*/
+
+@font-face {
+  font-family: "ChunkFive";
+  src: url(/font/Chunkfive.otf) format("opentype");
+}
+
+body, select, input, textarea { 
+  color: #444; 
+  font-family: Arial, sans-serif; 
+}
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+   you'll want to define those yourself. */ 
+h1,h2,h3,h4,h5,h6 { 
+	font-weight: bold; 
+}
+
+/* always force a scrollbar in non-IE */ 
+html { overflow-y: scroll; }
+
+ 
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color: #82001D;  }
+a:hover { color: #666; text-decoration: underline; }
+
+
+/*ul, ol { margin-left: 1.8em; }*/
+ol { list-style-type: decimal; margin-left: 25px; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin: 0; } 
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; } 
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: top; font-size: smaller;  }
+
+pre { 
+  padding: 15px; 
+  
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+ 
+textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+ 
+/* webkit browsers add a 2px margin outside the chrome of form elements */  
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ 	-webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301 
+   Also: hot pink. */
+
+/* make buttons play nice in IE:    
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+ 
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/* 
+ * Non-semantic helper classes 
+ */
+
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; } 
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
+.visuallyhidden { position: absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after {
+  content: "\0020"; display: block; height: 0; visibility: hidden;	
+} 
+
+.clearfix:after { clear: both; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
+ /* Primary Styles
+    Author: RIESTER
+ */
+
+/* ============================= Global Styles ============================ */
+
+h1 { 
+	font-size: 25px;
+	margin: 10px 0px;
+	font-family: 'Copperplate', 'Chunkfive', Georgia, serif;
+	color: #682024;
+}
+
+h2 { 
+	font-size: 14px;
+	color: #350a11;
+	border-bottom: 1px solid #e7cc8b;
+	margin: 10px 0px;
+}
+
+p { 
+	margin: 10px 0px;
+
+}
+
+
+.seperate { 
+	margin-bottom: 20px;
+}
+
+#container { 
+	margin: 0 auto;
+	width: 960px;
+	text-align: left;
+	font-size: 14px;
+}
+
+.regList { 
+	list-style-type: none;
+	padding-left: 10px;
+}
+
+.regList li { 
+	margin: 10px 0px;
+	font-size: 18px;
+}
+
+/*=========== Global Buttons ======================*/
+.redButton,
+a.redButton {
+	border: 1px solid #e6ca86;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	padding: 2px 15px;
+	display: inline-block;
+	color: #e6ca86;
+	background: #ad1435 url(images/btn-bg.jpg) repeat-x 0 0;
+	text-decoration: none;
+	-moz-box-shadow: 2px 2px 5px #333;
+	-webkit-box-shadow: 2px 2px 5px #333;
+	box-shadow: 2px 2px 5px #333;
+	margin: 10px 0px;
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, .2);
+}
+
+.redButton:hover,
+a.redButton:hover { 
+	background-color: #d21c33;
+	background-image: none;
+	color: #fff;
+}
+
+a.halfButton,
+a.revealButton, 
+a.hideButton { 
+	-moz-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-moz-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: #692025;
+	color: #ffd369;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: block;
+	float: left;
+	padding: 2px 25px 2px 20px;
+	cursor: pointer;
+}
+
+a.yellowButton {
+	border: 1px solid #e6ca86;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	padding: 2px 15px;
+	display: inline-block;
+	color: #7e001b;
+	background: #ffd46d;
+	text-decoration: none;
+	-moz-box-shadow: 2px 2px 5px #333;
+	-webkit-box-shadow: 2px 2px 5px #333;
+	box-shadow: 2px 2px 5px #333;
+	margin: 10px 0px;
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, .2);
+}
+
+a.yellowButton:hover { 
+	background-color: #d21c33;
+	background-image: none;
+	color: #fff;
+}
+
+a.revealButton {
+	background: url(images/arrow-down.jpg) no-repeat 160px 5px;
+}
+
+a.hideButton {
+	background: url(images/arrow-up.jpg) no-repeat 160px 5px;
+}
+
+a.halfButton:hover,
+a.revealButton:hover, 
+a.hideButton:hover { 
+	color: #fff;
+}
+
+.clearL { 
+	clear: left;
+}
+
+.floatL, .alignleft { 
+	float: left;
+}
+
+.floatR, .alignright { 
+	float: right;
+}
+
+.rightImage { 
+	float: right;
+	padding-left: 20px;
+	background-color: #fff;
+}
+
+ol li { 
+	margin-bottom: 10px;
+}
+
+/* validation error for form fields */
+.error { 
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+	color: #fff;
+	padding: 5px 15px;
+	margin-top: 10px;
+	background-color: #C7132C;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.thankyou {
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+	color: #fff;
+	padding: 5px 15px;
+	margin-top: 10px;
+	background-color: #269B36;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.success { 
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+	color: #444;
+	border: 2px solid #4C1918;
+	padding: 5px;
+	background-color: #e8c687;
+	margin-bottom: 10px;
+}
+
+
+/* ============================= Header Styles ============================ */
+
+header { 
+	background: url(images/header/header-full.jpg) no-repeat;
+	position: absolute;
+	z-index: 500;
+	height: 95px;
+	width: 960px;
+}
+
+header #logo a {
+	position: absolute;
+	left: 415px;
+	top: 10px;
+	width: 169px;
+	height: 94px;
+}
+
+.nav-main {
+	float: left;
+	height: 70px; /* Dont change or it will impact the home search*/
+	margin: 22px 0px 0px;
+}
+
+.nav-main li.navProducts > ul > li > a {
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+	width: 115px;
+	height: 42px;
+	padding-left: 65px;
+}
+
+.nav-main li.premium > a {
+	background-image: url(images/menu/premium-mashed.jpg);
+}
+
+.nav-main li.real > a {
+	background-image: url(images/menu/real-mashed.jpg);
+}
+
+.nav-main li.signature > a {
+	background-image: url(images/menu/signature.jpg);
+}
+
+.nav-main li.value-advantage > a {
+	background-image: url(images/menu/value-advantage.jpg);
+}
+
+.nav-main li.casseroles > a {
+	background-image: url(images/menu/casseroles.jpg);
+}
+
+.nav-main li.hashbrowns > a {
+	background-image: url(images/menu/hashbrowns.jpg);
+}
+
+.nav-main li.canada > a {
+	background-image: url(images/menu/canada.jpg);
+}
+
+.nav-main li.faqs > a {
+	background-image: url(images/menu/faq.jpg);
+}
+
+ul.nav {
+	padding-left: 7px;
+	margin: 0px;
+	color: #E9C78B;
+	z-index: 1000;
+}
+
+ul.nav li {
+	-moz-text-shadow: 0px 1px 0px #333;
+	-webkit-text-shadow: 0px 1px 0px #333;
+	text-shadow: 0px 1px 0px #333;
+	font-size: 20px;
+	list-style-type: none;
+}
+
+ul.nav li.navDivider { 
+	padding-top: 8px;
+	font-size: 23px;
+}
+
+ul.nav li.navDivider:hover { 
+	background: none;
+}
+
+ul.nav li a {
+	width: 180px;
+	padding: 10px 10px 0px;
+	-moz-text-shadow: 0px 1px 0px #333;
+	-webkit-text-shadow: 0px 1px 0px #333;
+	text-shadow: 0px 1px 0px #333;
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+ul.nav li li a {
+	padding: 10px;
+}
+
+ul.nav > li > a { 
+	height: 30px;
+	text-indent: -999em;
+}
+
+ul.nav li.navProducts > a {      
+	background: url(images/nav-full-txt.png) no-repeat 0px 0px;
+	width: 95px;
+}
+
+ul.nav li.navWhere > a {      
+	background: url(images/nav-full-txt.png) no-repeat -115px 0px;
+	width: 133px;
+}
+
+ul.nav li.navNutrition > a {      
+	background: url(images/nav-full-txt.png) no-repeat -275px 0px;
+	width: 90px;
+}
+
+ul.nav li.navRecipes {
+	margin-left: 215px;
+}
+
+ul.nav li.navRecipes > a {      
+	background: url(images/nav-full-txt.png) no-repeat -403px 0px;
+	width: 100px;
+}
+
+ul.nav li.navSolutions > a {      
+	background: url(images/nav-full-txt.png) no-repeat -525px 0px;
+	width: 100px;
+}
+
+ul.nav li.navCompany > a {      
+	background: url(images/nav-full-txt.png) no-repeat -660px 0px;
+	width: 80px;
+}
+
+#logoBottom { 
+	position: absolute;
+	float: left;
+	z-index: 100;
+	margin-left: 417px;
+}
+
+/* ============================= Content Styles ============================ */
+
+#main { 
+	padding-top: 95px;
+	position: relative;
+}
+
+#contentTitle { 
+	border-bottom: 2px solid #E9C78B;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+/* ====================== Home Carousel ========================= */
+
+#featureSlider {
+	overflow: hidden;
+	position: relative;
+}
+
+#slideHolder { 
+	background-color: #000;
+	overflow: hidden;
+	width: 960px;
+	height: 414px;
+}
+
+.slide {
+	position: relative;
+	width: 960px;
+	height: 414px;
+}
+
+#slideRight {
+	height: 414px;
+	z-index: 50;
+	width: 350px;
+	position: absolute;
+	right: 0;
+	padding: 0px 0px 0px 0px;
+}
+
+#slideRightCurve {
+	float: left;
+	background: url(images/slider-r-curve.png) no-repeat;
+	width: 72px;
+	height: 100%;
+}
+
+#slideRightBg {
+	float: left;
+	background: url(images/slider-r-body.jpg) no-repeat;
+	width: 278px;
+	height: 100%;
+}
+
+#textRotate {
+	margin-left: 30px;
+	width: 230px;
+	padding: 130px 0px 0px 5px;
+	list-style-type: none;
+	height: 180px;
+	overflow: hidden;
+}
+
+#textRotate a {
+	color: #FFDB98;
+}
+
+#textRotate a:hover {
+	color: #fff;
+}
+
+#textRotate li h2,
+#hero #heroTxt h2 {
+	color: #E9C78B;
+	font-family: 'Copperplate', 'Chunkfive', Georgia, serif;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	border: none;
+	margin: 0px;
+	line-height: 18px;
+}
+
+#slideHolder #textRotate li p,
+#hero #heroTxt p {
+	color: #E9C78B;
+	border-top: 1px dotted #E9C78B;
+	padding-top: 2px;
+}
+
+#slideLeft {
+	float: left;
+	height: 414px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#slideLeft #photoRotate {
+	position: relative;
+	float: left;
+}
+
+#controlsHolder { 
+	width: 500px;
+	height: 30px;
+	position: absolute;
+	float: left;
+	display: block;
+	bottom: 0;
+	left: 0;
+	margin: 0px 0px 10px 50px;
+	overflow: hidden;
+	z-index: 50;
+}
+
+#controlsHolder #slider-nav a, #controlsHolder #rotator_play_pause {
+	display: block;
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin: 0px 5px;
+	padding-top: 3px;
+	border: 1px solid #ffd369;
+	background-color: rgb(255, 211,105);
+	background-color: rgba(255,211,105,0.5);
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+	text-indent: -999em;
+}
+
+#controlsHolder #slider-nav a.activeSlide {
+	background-color: #ffd369;
+}
+
+.ie7 #controlsHolder #slider-nav a, 
+.ie7 #controlsHolder #rotator_play_pause,
+.ie8 #controlsHolder #slider-nav a, 
+.ie8 #controlsHolder #rotator_play_pause {
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b9a78550,endColorstr=#b9a78550);
+    zoom: 1;
+}
+
+#controlsHolder #rotator_play_pause {
+	float: left;
+	display: block;
+	width: 50px;
+	height: 20px;
+	margin-left: 10px;
+	text-indent: 0;
+	text-align: center;
+}
+
+
+/* ====================== Search Drop Slider ========================= */
+#productSearchBtn, #productSearchFull { 
+	width: 175px;
+	text-align: center;
+	-moz-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-moz-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin-left: 0px;
+	position: absolute;
+/*	background-color: #692025;*/
+	background: #9f2b34 url(images/th-bg.png) repeat-x bottom left;
+	right: 60px;
+}
+
+#productSearchBtn { 
+	padding: 5px 5px;
+	z-index: 100;
+	width: 185px;
+	height: 17px;
+}
+
+#productSearchFull {
+	z-index: 99; 
+	height: 140px;
+	top: -160px;
+	padding: 40px 10px 5px 10px;
+}
+
+#productSearchFull .formSearch {
+	width: 145px;
+	margin-bottom: 10px;
+} 
+
+#productSearchFull select {
+	width: 175px; 
+	height: 20px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+#searchBtn {
+	position: absolute;
+	z-index: 2000;
+}
+
+select {
+	background: white;
+	border: 2px solid white;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.photoTrim { 
+	border: 2px solid #F9C27F;
+	-webkit-box-shadow: 1px 1px 5px #444;
+	-moz-box-shadow: 1px 1px 5px #444;
+	box-shadow: 1px 1px 5px #444;
+	margin: 0px 15px 15px 15px;
+}
+
+.photo { 
+	border: 1px solid #444;
+	-webkit-box-shadow: 1px 1px 5px #444;
+	-moz-box-shadow: 1px 1px 5px #444;
+	box-shadow: 1px 1px 5px #444;
+/*
+	-webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;*/
+
+}
+
+/*
+.photo:hover { 
+	-webkit-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+	transform: rotate(5deg);
+}*/
+
+
+/* ====================== Features Area ========================= */
+#features {
+	width: 100%;
+	overflow: hidden;
+	padding: 10px 0px;
+	border-top: 10px solid #E9C78B;
+	float: left;
+	background-image: url(images/features-bg.jpg);
+}
+
+#features article, article#vidPromo {
+	background-color: #feebc5;
+	color: #ce1c32;
+	float: left;
+	width: 300px;
+	margin: 0px 10px;
+	-webkit-box-shadow: 2px 2px 5px #aaa;
+	-moz-box-shadow: 2px 2px 5px #aaa;
+	box-shadow: 2px 2px 5px #aaa;
+	height: 97px;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+article#vidPromo {
+	-webkit-box-shadow: 0px 0px 0px #aaa;
+	-moz-box-shadow: 0px 0px 0px #aaa;
+	box-shadow: 0px 0px 0px #aaa;
+	margin-top: 20px;
+	margin-right: 0;
+	background: transparent;
+	color: #fff;
+	border-left: 1px solid #eac887;
+}
+
+#features article p, article#vidPromo p {
+	margin: 0px 0px 0px 15px;
+	overflow: hidden;
+	float: left;
+	width: 140px;
+}
+
+#features article h4, article#vidPromo h4 { 
+	float: left;
+	text-transform: uppercase;
+	text-decoration: underline;
+	line-height: 20px;
+	margin: 5px 0px 0px 15px;
+}
+
+#features article h4 {
+	width: 140px;
+}
+
+#features article img { 
+	float: left;
+	display: block;
+	width: 300px;
+}
+
+article#vidPromo p, article#vidPromo a {
+	color: #fff;
+	text-decoration: none;
+}
+
+article#vidPromo img { 
+float: right;
+margin-left: 3px;
+margin-right: 0px;
+width: 120px;
+
+}
+
+
+/* ====================== Promo Area ========================= */
+
+#promo { 
+	width: 100%;
+	float: left;
+	background-image: url(images/promo-bg.jpg);
+	background-repeat: no-repeat;
+	background-color: #f9c27f;
+	height: 141px;
+	display: block;	
+	border-top: 10px solid #E9C78B;
+	}
+
+#promoSearch { 
+	float: left;
+	padding: 10px 20px 0px 20px;
+	text-align: center;
+	width: 180px;
+	}
+
+#promoSearch h3 { 
+	color: #e6ca86;
+	padding: 3px;
+	text-transform: uppercase;
+	padding: 5px;
+	text-align: center;
+	margin-bottom: 5px;
+	-moz-text-shadow: 0px 1px 0px #333;
+	-webkit-text-shadow: 0px 1px 0px #333;
+	text-shadow: 0px 1px 0px #333;
+}
+
+#promoSearch p {
+	margin: 0;
+}
+
+#promoSearch .salesMaterials {
+	margin-top: 9px;
+	display: block;
+}
+
+.ie6 #promoSearch .salesMaterials,
+.ie7 #promoSearch .salesMaterials,
+.ie8 #promoSearch .salesMaterials {
+	margin-top: 0;
+}
+
+#promoSearch .salesMaterials a {
+	background-color: rgba(105, 32, 37, 0.5);
+	padding: 5px 10px;
+	font-size: 12px;
+	display: block;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.ie6 #promoSearch .salesMaterials a,
+.ie7 #promoSearch .salesMaterials a,
+.ie8 #promoSearch .salesMaterials a {
+	background-color: #692025;
+}
+
+.formSearch { 
+	float: left;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 2px 20px 2px 10px;
+	background: #fff right center url(images/icon-zoom.jpg) no-repeat;
+	height: 18px;
+}
+
+.formSearch input { 
+	border: none;
+	background-color: transparent;
+}
+
+#promoFeed {
+	background-color: #e9c78b;
+	float: right; 
+	width: 382px;
+	height: 142px;
+}
+
+#promoFeed h3 { 
+	color: #e6ca86;
+	text-transform: uppercase;
+	-moz-text-shadow: 0px 1px 0px #333;
+	-webkit-text-shadow: 0px 1px 0px #333;
+	text-shadow: 0px 1px 0px #333;
+	font-size: 11px;
+	margin-bottom: 5px;
+}
+
+#promoFeed ul { 
+	overflow: hidden;
+	width: 300px;
+	list-style-type: none;
+	background-color: #692025; /*for IE 8 and down*/
+	background-color: rgba(105,32,37,0.5);
+	padding: 5px;
+	margin: 0px;
+	color: #fff;
+	font-size: 11px;
+	height: 75px;
+}
+
+#promoFeed li {
+	padding: 0px 0px 5px 0px; 
+	margin: 7px 0px;
+	overflow: hidden;	
+}
+
+#promoFeed li div { 
+	width: 260px;
+	float: left;
+	}
+
+#promoFeed span { 
+	color: #e6ca86;
+	font-weight: bold;
+}
+
+#promoFeed .feedArrow { 
+	float: right;
+	width: 20px;
+	padding-left: 5px;
+}
+
+#promoFeed .viewAll { 
+	padding: 3px 0px;
+	text-align: right;
+	font-size: 10px;
+}
+
+#promoFeed a { 
+	color: #fff;
+	text-decoration: none;
+}
+
+#promoFeed .viewAll a { 
+	color: #fff;
+}
+
+#promoSignup { 
+	width: 325px;
+	padding: 0px 0px 0px 100px;
+	float: left;
+}
+
+#promoFaq { 
+	overflow: hidden;
+}
+
+#promoSignup #promoInfo { 
+	width: 140px;
+	float: left;
+	margin-top: 20px;
+	text-transform: uppercase;
+	font-size: 11px;
+	color: #7a1d1d;
+}
+
+#promoSignup img { 
+	float: right;
+	display: block;
+}
+#promoSearch .salesMaterials a{
+	color:#fff;
+	font-size:11px;
+}
+
+
+/* ============================= Hero Unit Styles ============================ */
+#hero { 
+	height: 268px;
+	overflow: hidden;
+	border-bottom: 10px solid #E9C78B;
+	z-index: 1;
+	position: relative;
+}
+
+#hero #heroImg {
+	position: absolute;
+}
+
+#hero #heroTxtL { 
+	float: left;
+	background: url(images/hero/hero-sm-l.png) no-repeat;
+	height: 268px;	
+	width: 36px;
+}
+
+#hero #heroTxtR {
+	float: left; 
+	background: url(images/hero/hero-sm-r.png) no-repeat;
+	height: 198px;
+	padding: 70px 10px 0px 40px;
+	width: 332px;
+}
+
+#hero #heroTxt {
+	float: right;
+/*	background: url(images/hero/hero-r.png) no-repeat;*/
+	position: absolute;
+	right: 0;
+	font-size: 12px;
+
+}
+
+/* Look at home slider styles for additional style declorations */
+
+
+/* ============================= One Column Styles ============================ */
+
+#oneCol, 
+#twoCol { 
+	background-color: #fff;
+	overflow: hidden;
+	position: relative;
+}
+
+#oneCol .subNav { 
+	padding: 0px 0px 0px 50px;
+}
+
+#oneCol .subNav li ul {
+	border: none;
+	margin-left: 500px;
+}
+
+#oneCol #content {
+	padding: 20px 50px;
+	min-height: 410px;
+}
+
+#oneCol #content.mediacenter,
+#oneCol #content.salesmaterial {
+	min-height: 560px;
+}
+
+.mediacenter a,
+.salesmaterial a {
+	color: #32281F;
+	padding-left: 20px;
+	width:307px;
+	display:inline-block;
+}
+.mediacenter a.pdf,
+.salesmaterial a.pdf{
+	background: url(images/ico-pdf.gif) no-repeat 0 50%;		
+}
+.mediacenter a.mov,
+.salesmaterial a.mov{
+	background: url(images/ico-mov.gif) no-repeat 0 50%;		
+}
+.mediacenter a.adobe,
+.salesmaterial a.adobe{
+	background: url(images/reader_16x16.png) no-repeat 0 50%;
+	display:block;
+	position:absolute;
+	top:75px;
+	right:80px;
+	font-size:12px;
+	font-family: Arial, sans-serif;
+	font-weight:normal;
+	text-align: right;
+	width:105px;
+}
+.salesmaterial a.adobe{
+	top:37px;
+}
+.mediacenter li span,
+.salesmaterial li span{
+	width: 70px;
+	display: inline-block;
+	text-align: right;
+}
+
+#productList {
+	list-style-type: none;
+	padding: 0px;
+	margin: 30px 0px 0px;
+}
+
+#productList li {
+/*	overflow: hidden;*/
+	margin: 0px 0px 15px 0px;
+}
+
+#productList img {
+	float: left;
+	margin-right: 20px;
+/*	width: 105px;*/
+}
+
+#productList h3 {
+	float: left;
+	margin: 0px 10px 0px 0px;
+	width: 650px;
+}
+
+#productList p {
+	float: left;
+	border-top: 1px dotted #E9C78B;
+	width: 650px;
+	padding: 5px 0px 0px 0px;
+}
+
+/* ============================= Recipes List Styling ============================== */
+
+#recipeList {
+	list-style-type: none;
+	padding: 0px;
+	margin: 30px 0px 0px;
+}
+
+#recipeList li {
+/*	overflow: hidden;*/
+	margin: 0px 0px 15px 0px;
+}
+
+#recipeList img {
+	float: left;
+	margin-right: 20px;
+/*	width: 105px;*/
+}
+
+#recipeList h3 {
+	float: left;
+	margin: 0px 10px 0px 0px;
+	width: 650px;
+}
+
+#recipeList p {
+	float: left;
+	border-top: 1px dotted #E9C78B;
+	width: 650px;
+	padding: 5px 0px 0px 0px;
+}
+
+#recipeListNew {
+	overflow: hidden;
+	list-style-type: none;
+	padding: 0px;
+	margin: 30px 0px 0px;
+}
+
+ul#recipeListNew li {
+	float: left;
+	width: 48%;
+	padding-bottom: 20px;
+/*	overflow: hidden;*/
+	min-height: 140px;
+	margin-right: 4%;
+	margin-bottom: 15px;
+	border-bottom: 1px dotted #E9C78B;
+}
+
+#recipeListNew li.last {
+	margin-right: 0;
+}
+
+#recipeListNew img {
+	float: left;
+	margin-right: 20px;
+/*	width: 105px;*/
+}
+
+#recipeListNew h3 {
+	float: left;
+	width: 250px;
+	margin: 0px 10px 0px 0px;
+}
+
+#recipeListNew p {
+	float: left;
+	width: 250px;
+	padding: 5px 0px 0px 0px;
+}
+
+/* ============================= Two Column Styles ============================ */
+
+#twoCol #subNavigation {
+	margin-left: 200px;
+}
+
+#twoCol #leftPromo {
+	float: left;
+	width: 200px;
+	background: #970223 url(images/left-promo-top.jpg) no-repeat top;
+	/*Use these next two to give the column equal heights*/
+	margin-bottom: -1000px; 
+	padding-bottom: 1100px;
+	padding-top: 60px;
+	text-align: center;
+}
+
+#twoCol #leftPromo #leftContent { 
+	padding: 5px;
+}
+
+#twoCol #leftPromo #leftContent h3 {
+	text-transform: uppercase;
+	font-size: 15px;
+	color: #fff;
+	margin-bottom: 15px;
+	-moz-text-shadow: 0px 1px 0px #333;
+	-webkit-text-shadow: 0px 1px 0px #333;
+	text-shadow: 0px 1px 0px #333;
+}
+
+#leftContent h5 { 
+	color: #530002;
+	text-transform: uppercase;
+}
+
+#leftContent h5, #leftContent p { 
+	margin: 5px;
+	font-size: 11px;
+} 
+
+#leftContent ul { 
+	width: 177px;
+	margin: 0 auto;
+	list-style-type: none;
+}
+
+#twoCol #leftPromo #leftContent li {
+	background-color: #f4debf;
+	padding: 0px;
+	margin: 20px 0px;
+	text-align: left;
+	overflow: hidden;
+	border: 1px solid #f0d399;
+}
+
+#twoCol #leftPromo #leftPromoBottom {
+	position: absolute;
+	bottom: -5px;
+	left: 0px;
+}
+
+#twoCol #content {
+	padding: 20px 20px 20px 40px;
+	margin-left: 200px;
+	min-height: 600px;
+}
+
+#twoCol #productList h3 {
+	float: left;
+	margin: 20px 10px 0px 0px;
+	width: 450px;
+}
+
+#twoCol #productList p {
+	float: left;
+	border-top: 1px dotted #E9C78B;
+	width: 450px;
+	padding: 5px 0px 0px 0px;
+}
+
+/* ============================= Category Nav Styles ============================ */
+.subNav {
+	list-style-type: none;
+	background: #f5ebd2;
+	position: relative;
+	overflow: hidden;
+	height: 30px;
+	font-size: 12px;
+}
+
+.subNav li {
+	position: static;
+	padding: 10px 5px 2px 5px;
+	float: left;
+	border-left: 1px solid #edc68d;
+	border-right: 1px solid #fff;
+	height: 30px;
+}
+
+.subNav li:last-child {
+	border-right: none;
+}
+
+.subNav li:first-child {
+	border-left: none;
+	font-weight: bold;
+}
+
+.subNav a {
+	border-top:		none;
+	font-weight: bold;
+	text-decoration: none;
+	color: #82001d;
+}
+
+.subNav li.current_page_item,
+.subNav li:hover {
+	background-color: #fff;
+}
+
+/* ============================= Solutions Page Styles ============================ */
+
+h1.noHero { 
+	margin: 50px 0px 20px 0px;
+	font-size: 23px;
+}
+
+h1 img { 
+	margin-right: 10px;
+}
+
+#featRecipe {
+	overflow: hidden;
+}
+
+#featRecipe ul {
+	list-style-type: none;
+}
+
+#featRecipe>li {
+	background-color: #f4debf;
+	padding: 10px;
+	border: 1px solid #999;
+	margin: 10px 20px 0px 0px;
+	overflow: hidden;
+}
+
+#featRecipe img { 
+	float: right;
+}
+
+#featRecipe h2 { 
+	margin: 0px !important;
+	border: none;
+}
+
+#featRecipe h3 {
+	margin: 10px 0 5px;
+}
+
+#featRecipe .divider {
+	border: 0;
+	padding: 0;
+}
+
+#featRecipe .ERSTopRight {
+	display: none;
+}
+
+.detailsList { 
+	width: 250px;
+	float: left;
+	margin: 0px 20px 0px 0px;
+}
+
+.detailsList ul{ 
+	padding: 0px 0px 0px 15px;
+}
+
+/* ============================= Where to Buy Styles ============================ */
+
+#content .salesMaterials {
+	float: right;
+	display: block;
+	padding: 0 10px;
+	margin: 0 0 20px 20px;
+	border-bottom: 1px solid #666;
+	background: #ffffff;
+}
+
+#content .salesMaterials a {
+	padding: 10px 20px;
+	margin: 0 0 0 0;
+	background-color: #ad1435;
+	color: #fff;
+	font-weight: bold;
+	display: block;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+/* ============= Search Bar Styles ============= */
+
+#searchBar {
+	padding: 25px 40px;
+	border-bottom: 10px solid #E9C78B;
+	background-color: #970223;
+	overflow: hidden;
+}
+
+#searchBar h1 { 
+	margin: 0px 20px 0px 0px;
+	float: left;
+	text-transform: uppercase;
+	color: #E9C78B;
+}
+
+#searchBar input { 
+	float: left;
+	margin: 0px 10px;
+}
+
+#searchBar #brokerBarStatus { 
+	float: right;
+	padding: 0px 30px;
+	text-transform: uppercase;
+	color: #E9C78B;
+	font-family: 'Copperplate', 'Chunkfive', Georgia, serif;
+	font-size: 18px;
+}
+
+#searchBar .formSearch input { 
+	width: 150px;
+	border: none;
+	background-color: transparent;
+	float: left;
+	height: 18px;
+}
+
+#searchBar select {
+	float: left;
+	width: 150px;
+	border: none;
+	margin-left: 10px;
+}
+
+/* ============= Broker Search Styles ============= */
+
+#brokerSearch  { 
+	margin: 20px 0px;
+	padding: 10px;
+}
+
+#brokerSearch .formSearch { 
+	border: 1px solid #444;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+#brokerSearch input[type='submit'] { 
+	margin: 0px 10px;
+}
+
+/* ============= Broker List Styles ============= */
+
+#brokerList { 
+	float: left;
+	list-style-type: none;
+	width: 550px;
+	font-size: 12px;
+	margin: 0px; 
+	padding: 0px;
+}
+
+#bdmList { 
+	list-style-type: none;
+	float: right;
+	width: 275px;
+	font-size: 12px;
+}
+
+#brokerList .logo { 
+	float: left;
+	margin-right: 10px;
+}
+
+#bdmList .envelope,
+#brokerList .envelope { 
+	float: right;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.brokerLeftCol { 
+	float: left;
+	width: 225px;
+	margin-right: 20px;
+}
+
+.brokerRightCol { 
+	float: left;
+	width: 190px;
+}
+
+#bdmList li,
+#brokerList li { 
+	padding: 3px 0px 3px 0px;
+	margin: 10px 0px;
+	overflow: hidden;
+}
+
+#bdmList li.header,
+#brokerList li.header { 
+	padding: 3px 0px;
+	border-top: 1px solid #E9C78B;
+	border-bottom: 1px solid #E9C78B;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.mailContactForm { 
+	float: left;
+	padding: 10px;
+	background-color: #eac68c;
+	border: 1px solid #970222;
+	margin-top: 10px;
+
+}
+
+#brokerList .mailContactForm {
+	width: 525px;
+}
+
+#bdmList .mailContactForm { 
+	width: 250px;
+}
+
+#dbmLeft { 
+	float: left;
+	width: 210px;
+}
+
+.defaultMessage { 
+	font-size: 16px;
+	font-weight: bold;
+	color: #999;
+}
+
+/* ============================= Media Center Page Styles ============================ */
+
+.fileList { 
+	float: left;
+	list-style-type: none;
+	width: 400px;
+	font-size: 12px;
+	margin: 0px 30px 0px 0px; 
+	padding: 0px;
+}
+
+.fileList li { 
+	padding: 3px 0px 3px 0px;
+	margin: 10px 0px;
+	overflow: hidden;
+}
+
+.fileList li.header { 
+	padding: 3px 0px;
+	border-top: 1px solid #E9C78B;
+	border-bottom: 1px solid #E9C78B;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
+/* ============================= Product Page Styles ============================ */
+
+#productInfo ul { 
+	list-style-type: none;
+}
+
+#productTitle h1 {
+	float: left;
+	color: #350a11;
+	font-size: 16px;
+}
+
+#productTitle h3 {
+	float: right;
+	color: #82001d;
+	font-size: 12px;
+}
+
+#productInfo #productLeft { 
+	float: left;
+	width: 25%;
+	margin: 0px 20px 0px 0px;
+}
+
+#productInfo #productLeft #productImage { 
+/*
+	background-color: #E9C78B;
+	border: 1px solid #682024;*/
+	text-align: center;
+/*	padding: 10px 0px;*/
+}
+
+#pageOptions {
+	position: absolute;
+	right: 0px;
+	top: 30px;
+	padding: 10px 45px 5px 5px;
+	width: 150px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+/* ======================== Nutrition Chart ================= */
+
+#nutritionArea {
+	margin: 20px 0px 30px 0px;
+	border: 1px solid #E9C78B;
+	padding: 5px;
+	font-size: 10px;
+}
+
+#nutritionArea td { 
+	padding: 5px 0px 5px 5px;
+	border-bottom: 1px solid #888;
+}
+
+#nutritionArea td.noBorder { 
+	border-bottom: none;
+}
+
+#nutritionArea td.value { 
+	text-align: center;
+}
+
+#nutritionArea td.indentedInfo { 
+	padding-left: 10px;
+}
+
+#nutritionArea h4 { 
+	font-size: 18px;
+}
+
+#nutritionArea h6 { 
+	font-size: 10px;
+}
+
+#nutritionArea b { 
+	font-size: 11px;
+}
+
+#nutritionArea .thickBorder {
+	border-bottom: 4px solid #E9C78B;
+	margin: 5px 0px 10px;
+}
+
+#nutritionArea ul li {
+	border-bottom: 1px solid #444;
+}
+
+#nutritionArea ul li span {
+	float: right;
+}
+
+/* ======================== / Nutrition Chart ================= */
+
+
+
+#productInfo #productRight { 
+	float: left;
+	width: 70%;
+}
+
+#productInfo #recipeCard { 
+	float: right;
+}
+
+#productRight h3 {
+	color: #350a11;
+	font-size: 14px;
+}
+
+#productRight h4 {
+	color: #999;
+	font-weight: bold;
+}
+#productRight ol {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+#productRight ol li{
+	margin-bottom: 5px;
+}
+
+#productRight div { 
+	margin: 0px 0px 10px;
+	border-bottom: 1px solid #E9C78B;
+	padding: 5px 0px;
+}
+
+#productRight table { 
+	width: 100%;
+	margin: 10px 0px;
+}
+
+#productRight table th,
+#productRight table tr { 
+	text-align: left;
+	margin: 10px 0px;
+	border-bottom: 1px solid #ccc;
+}
+
+#productRight table th { 
+	color: #999;
+}
+
+#productRight table tr:last-child { 
+	border: none;
+}
+
+#productRight table td { 
+	padding: 2px 0px;
+}
+
+#productRight ul.instructions { 
+	list-style-type: disc;
+	margin-left: 20px;
+}
+
+#productRight ul.instructions li { 
+	border: none;
+}
+
+#breadCrumbTrail { 
+	padding-top: 30px;
+	font-size: 12px;
+}
+
+#relatedRecipes li {
+	font-size: 12px;
+	margin: 5px 0px;
+}
+#relatedProducts li {
+	font-size: 12px;
+	margin: 5px 0px;
+}
+
+/* ============================= Pagination Styles ============================ */
+
+.pagination {
+	margin: 0px 50px;
+	display: block;
+	overflow: hidden;
+}
+
+.pagination .numberHolder { 
+	border-top: 1px solid #E9C78B;
+	padding: 10px 0px;
+	float: left;
+	text-align: center;
+	width: 850px;
+}
+
+.pagination ul {
+	margin: 0 auto; 
+	list-style-type: none;
+	height: 20px;
+	width: 200px;
+}
+
+.pagination li { 
+	float: left;
+	width: 20px;
+	border-right: 1px solid #b80028;
+}
+
+.pagination li:last-child { 
+	border-right: none;
+}
+
+.pagination .arrow { 
+	width: 50px;
+	display: block;
+}
+
+/* ============================= Nutrition Page Styles ============================ */
+
+#compareChart { 
+	border: none;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+#compareChart th { 
+	padding: 5px;
+	background: #651d20 url(images/th-bg.png) repeat-x bottom left;
+	color: #fff;
+	text-align: center;
+	border-right: 1px solid #90292d;
+	border-top: 1px solid #90292d;
+	font-size: 11px;
+}
+
+#compareChart .oddStripe { 
+	background: #f5ebd2 url(images/tr-bg.png) repeat-x bottom left;
+}
+
+#compareChart tr th:first-child,
+#compareChart tr td:first-child { 
+	text-align: left;
+	font-weight: bold;
+}
+
+#compareChart td {
+	background-color: #eee9e9;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #aaa;
+	border-top: 1px solid #999;
+	text-align: center;
+	padding: 10px;
+}
+
+#print_button, #print_contents { 
+	font-weight: bold;
+	color: #722225;
+	padding: 5px 5px 5px 35px;
+	float: right;
+	background:  url(images/printer-sprite.jpg) no-repeat 0 0;
+	cursor: pointer;
+}
+
+
+#print_button:hover, #print_contents:hover { 
+	color: #666;
+	background:  url(images/printer-sprite.jpg) no-repeat 0px -32px;
+}
+
+#email_button { 
+	font-weight: bold;
+	color: #722225;
+	padding: 5px 5px 5px 35px;
+	float: right;
+	background:  url(images/mail-sprite.jpg) no-repeat 0 0;
+	cursor: pointer;
+}
+
+
+#email_button:hover { 
+	color: #666;
+	background:  url(images/mail-sprite.jpg) no-repeat 0px -31px;
+}
+
+
+/* ============================= Company Section Styles ============================ */
+.arrowList { 
+	list-style-image: url(images/list-arrow.png);
+	margin: 20px;
+}
+
+.arrowList li {
+	margin: 10px 0px;
+}
+
+
+/*================================= Email Overlay =====================================*/
+
+#emailOverlay { 
+	position: absolute;
+	padding: 50px 0 0 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	display: none;
+}
+
+#emailContent { 
+	width: 700px;
+	margin: 0 auto;
+	background-color: #fff;
+	text-align: left;
+	padding: 20px;
+}
+
+#emailContent h1 {
+	margin: 0 0 20px 0;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #E9C78B;
+}
+
+#emailForm { 
+	background-color: #F8F6F2;
+	padding: 20px;
+}
+
+.emailClose {
+	background-color: #fff;
+	margin: -20px -20px 0 0;
+	padding: 5px 5px 10px 10px;
+	font-size: 12px;
+}
+
+.ie7 #emailOverlay,
+.ie8 #emailOverlay {
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+    zoom: 1;
+ }
+ 
+
+#email-nutrition-info input[type=email],
+#email-product-info input[type=email] {
+	width: 250px;
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 0 10px;
+}
+
+/* ============================= Contact Form Styles ============================ */
+
+#contact_form, .broker_contact_form, .contactForm.contact { 
+	width: 600px;
+	float: left;
+}
+
+#contact_form li, .broker_contact_form li {
+	list-style-type: none;
+	width: 40%;
+	margin: 0px 10px 10px 0px; 
+	float: left;
+}
+ 
+#contact_form input, .broker_contact_form input, .contactForm.contact input { 
+	width: 200px !important;
+}
+
+#contact_form input.checkbox, .broker_contact_form input.checkbox { 
+	width: 20px !important;
+}
+
+#contact_form textarea, .broker_contact_form textarea, .contactForm.contact textarea { 
+	clear: both;
+	float: left;
+	height: 100px !important;
+	width: 420px !important;
+}
+
+#contact_form .fullRow, .broker_contact_form .fullRow {
+	padding-top: 10px;
+	width: 100%;
+}
+
+#contact_form label,
+#rbm_form label,
+.broker_contact_form label { 
+	font-size: 12px;
+	color: #4e1619;
+	font-weight: bold;
+}
+
+#contactInfoBox { 
+	padding: 0px 30px 30px 30px;
+	list-style-type: none;
+}
+
+
+.contactForm.contact input[type="submit"] {
+	border: 1px solid #e6ca86;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	padding: 2px 15px;
+	display: inline-block;
+	color: #e6ca86;
+	background: #ad1435 url(images/btn-bg.jpg) repeat-x 0 0;
+	text-decoration: none;
+	-moz-box-shadow: 2px 2px 5px #333;
+	-webkit-box-shadow: 2px 2px 5px #333;
+	box-shadow: 2px 2px 5px #333;
+	margin: 10px 0px;
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, .2);
+}
+
+.contactForm.contact input:hover[type="submit"] { 
+	background-color: #d21c33;
+	background-image: none;
+	color: #fff;
+}
+
+.contactForm.contact #field_2_6 label.gfield_label {
+	display: none;
+}
+
+.contactForm.contact li.certify {
+	padding-top: 10px;
+}
+
+
+#siteMap { 
+	font-size: 18px;
+	list-style-type: none;
+}
+
+#siteMap ul {
+	margin: 5px 20px 10px; 
+	font-size: 14px;
+}
+
+#siteMap li { 
+	margin: 2px 0px;
+}
+
+/* ============================= Chefs Corner Styles ============================ */
+
+.page-id-353 ol { 
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.page-id-353 ol p { 
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 16px;
+}
+
+/* ============================= Events Styles ============================ */
+
+#eventList {
+	list-style-type: none;
+}
+
+#eventList li{
+	margin: 0px 0px 30px 0px;
+	overflow: hidden;
+}
+
+#eventList h2 {
+	font-size: 16px;
+}
+
+#eventList h2 span {
+	color: #999;
+	font-size: 13px;
+}
+
+#eventList .date {
+	clear: both;
+	padding: 5px;
+	background-color: #e6d192;
+	color: #4b171b;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 13px;
+}
+
+/* ============================= FAQ Styles ============================ */
+
+#faqList { 
+	list-style-image: url(images/q-icon.jpg);
+	margin: 0px 0px 0px 30px;
+}
+
+#faqList a.question { 
+	display: block;
+	cursor: pointer;
+	font-size: 16px;
+	margin: 10px 0px;
+	font-weight: bold;
+}
+
+#faqList p { 
+	margin-left: 20px;
+}
+
+#faqList li p { 
+	display: none;
+}
+
+/* ============================= Signup page Styles ============================ */
+
+.reasonBox {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	float: left;
+	border: 1px solid #4c1918;
+	width: 42%;
+	height: 200px;
+	margin: 10px;
+	padding: 20px;
+	background: #fff8b8 url(images/burlap-texture.jpg) top left;
+}
+
+#signupForm { 
+	margin: 40px 0px 0px 40px;
+}
+
+#signupForm input[type='text'] { 
+	width: 250px;
+}
+
+#signupForm label { 
+	font-weight: bold;
+}
+
+/* ============================= Footer Styles ============================ */
+
+footer {
+	width: 100%;
+	float: left;
+	padding: 5px 0px 0px 0px;
+	overflow: hidden;
+	border-top: 10px solid #E9C78B;
+	background-color: #ce1c32;
+	font-size: 12px;
+	-moz-text-shadow: 0px 1px 0px #333;
+	-webkit-text-shadow: 0px 1px 0px #333;
+	text-shadow: 0px 1px 0px #333;
+	color: #fff;
+	-moz-box-shadow: 0px 1px 5px #333;
+	-webkit-box-shadow: 0px 1px 5px #333;
+	box-shadow: 0px 1px 5px #333;
+}
+
+footer ul li {
+	float: left;
+	display: block;
+	margin: 0px 2px;
+	padding: 0px;
+}
+
+footer ul.nav li.navDivider { 
+	padding-top: 8px;
+	font-size: 11px;
+}
+
+footer #socMed {
+	padding: 5px;
+	float: right;
+	text-align: right;
+}
+
+footer ul.nav {
+	margin: 10px 0px 0px 10px;
+	float: left;
+	list-style-type: none;
+	font-family: 'Copperplate', 'Chunkfive', Georgia, serif;
+}
+
+footer  ul.nav li a {
+	padding: 0px 2px;
+	font-size: 14px;
+}
+
+footer span {
+	display: block;
+	width: 125px;
+	float: left;
+	margin-top: 8px;
+	font-size: 11px;
+}
+
+.footerLogo { 
+	float: left;
+	margin: 0px 10px;
+}
+
+/* =========================== Superfish Menu ====================================*/
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:	1.0;
+}
+
+.sf-menu ul {
+	position: absolute;
+	top: -999em;
+	width: 200px; /* left offset of submenus need to match (see below) */
+}
+.sf-menu ul li {
+	width: 100%;
+}
+
+.sf-menu li:hover {
+	visibility: inherit; /* fixes IE7 'sticky bug' */
+}
+
+.sf-menu li {
+	float: left;
+	position: relative;
+}
+
+.sf-menu a {
+	display: block;
+	position: relative;
+}
+
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left: 0;
+	top: 40px; /* match top ul list item height */
+	z-index: 99;
+}
+
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top: -999em;
+}
+
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left: 200px; /* match ul width */
+	top: 0;
+}
+
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top: -999em;
+}
+
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left: 200px; /* match ul width */
+	top: 0;
+}
+
+/*** SKIN ***/
+
+.sf-menu ul {
+	border: 1px solid #4F1619;
+}
+
+.sf-menu ul li {
+	padding: 10px;
+/*	overflow: hidden;*/
+}
+
+.sf-menu ul a {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.8em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+
+.sf-menu li li {
+	background: rgb(105,32,37);  /*for IE 8 and down*/
+	background: rgba(105,32,37,0.9); 
+	padding:  2px 2px 2px 0px;
+	font-size: 12px;
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	background:	#4F1619; /* hover*/
+	outline:		0;
+}
+
+.sf-menu li li img { 
+	float: left;
+	margin-right: 5px;
+	border: 1px solid #fff;
+}
+
+.sf-menu li.sfHover ul.navLast {
+	left: -92px;
+}
+
+li.navNutrition ul.sub-menu, li.navCompany ul.sub-menu {
+	left: -92px;
+}
+
+/* =================== Colorbox ======================*/
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:#000;}
+#colorbox{}
+    #cboxTopLeft{width:14px; height:14px; background:url(images/controls.png) no-repeat 0 0;}
+    #cboxTopCenter{height:14px; background:url(images/border.png) repeat-x top left;}
+    #cboxTopRight{width:14px; height:14px; background:url(images/controls.png) no-repeat -36px 0;}
+    #cboxBottomLeft{width:14px; height:43px; background:url(images/controls.png) no-repeat 0 -32px;}
+    #cboxBottomCenter{height:43px; background:url(images/border.png) repeat-x bottom left;}
+    #cboxBottomRight{width:14px; height:43px; background:url(images/controls.png) no-repeat -36px -32px;}
+    #cboxMiddleLeft{width:14px; background:url(images/controls.png) repeat-y -175px 0;}
+    #cboxMiddleRight{width:14px; background:url(images/controls.png) repeat-y -211px 0;}
+    #cboxContent{background:#fff; overflow:visible;}
+        #cboxLoadedContent{margin-bottom:5px;}
+        #cboxLoadingOverlay{background:url(images/loading_background.png) no-repeat center center;}
+        #cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
+        #cboxTitle{position:absolute; bottom:-25px; left:0; text-align:center; width:100%; font-weight:bold; color:#7C7C7C;}
+        #cboxCurrent{position:absolute; bottom:-25px; left:58px; font-weight:bold; color:#7C7C7C;}
+        
+        #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{position:absolute; bottom:-29px; background:url(images/controls.png) no-repeat 0px 0px; width:23px; height:23px; text-indent:-9999px;}
+        #cboxPrevious{left:0px; background-position: -51px -25px;}
+        #cboxPrevious.hover{background-position:-51px 0px;}
+        #cboxNext{left:27px; background-position:-75px -25px;}
+        #cboxNext.hover{background-position:-75px 0px;}
+        #cboxClose{right:0; background-position:-100px -25px;}
+        #cboxClose.hover{background-position:-100px 0px;}
+        
+        .cboxSlideshow_on #cboxSlideshow{background-position:-125px 0px; right:27px;}
+        .cboxSlideshow_on #cboxSlideshow.hover{background-position:-150px 0px;}
+        .cboxSlideshow_off #cboxSlideshow{background-position:-150px -25px; right:27px;}
+        .cboxSlideshow_off #cboxSlideshow.hover{background-position:-125px 0px;}
+
+
+
+/*
+ * Styles used by the modal output mode.
+ * '.validity-modal-msg' is applied to the modal boxes 
+ * and '.validity-modal-msg:hover' is applied to suggest 
+ * to the user that the boxes are clickable.
+ */
+.validity-modal-msg { 
+    position: absolute; 
+    z-index:4000; 
+    background-color:#e8c686; 
+    border:solid 1px #000; 
+    padding:4px;
+    cursor:pointer;
+}
+
+.validity-modal-msg:hover { 
+    background-color:#aaa; 
+}
+
+/*
+ * Styles used by the summary output mode.
+ * '.validity-summary-container' is a container on the page that should contain a UL 
+ * which is the actual summary. The container can hold 
+ * an extra bit of text (or anything really) that explains what the summary is.
+ * '.validity-erroneous' is applied to every input that fails.
+ */
+.validity-summary-container { display:none; }
+.validity-summary-output ul { }
+.validity-erroneous { border:solid 2px #f56600 !important; }
+
+
+
+/*
+ * Media queries for responsive design
+ * These follow after primary styles so they will successfully override. 
+ */
+
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+  
+}
+
+@media all and (orientation:landscape) { 
+  /* Style adjustments for landscape mode goes here */
+  
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+  
+  
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
+ 
+}
+
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+@media print {
+  * { background: #fff !important; color: #444 !important; text-shadow: none !important; }
+  body { background-color: #fff; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; } 
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+
+/*========================================= History Page ===================================*/
+
+.history-page article.line{
+	border-top: 1px solid #E7CC8B;
+	padding-top:10px;
+	display: block;
+}
+.history-page article{
+display: inline-block;
+}
+
+.history-page article ul{
+	border-bottom: 1px solid #E7CC8B;
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+.history-page article ul li{
+	float:left;
+	width:225px;
+	background-color:#f4e1b4;
+	min-height:292px;
+	height:292px;
+}
+.history-page article ul li img{
+
+	width:225px;
+}
+.history-page article ul li p{
+	padding: 0 10px 10px 10px;
+	font-size:13px;
+}
+.history-page article ul li h5{
+	padding: 10px 10px 0 10px;
+}
+.history-page div.footer-bar{
+	background-color: #F4E1B4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    left: -40px;
+    padding: 10px 10px 10px 40px;
+    position: relative;
+    width: 710px;
+
+}
+
+.history-page div.footer-bar p.text{
+	color: #2B508E;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+.history-page div.footer-bar span.call{
+	color: #000;
+    float: right;
+    font-size: 12px;
+    margin-bottom: 6px;
+    padding-right: 15px;
+    text-align: right;
+    width: 200px;
+}
+
+div.divider {
+	margin: 0px 0px 10px;
+	border-bottom: 1px solid #E9C78B;
+	padding: 5px 0px;
+}
+
+/*========================================= Events List Page ===================================*/
+
+ul.events-list h2 {
+	font-size: 18px;
+	margin: 10px 0px;
+	font-family: 'Copperplate', 'Chunkfive', Georgia, serif;
+	color: #682024;
+	border-bottom: 1px solid #e7cc8b;
+}
+
+ul.events-list h2 a { 
+	text-decoration: none;
+}
+
+ul.events-list li {
+	list-style-type: none;
+	padding: 10px 0;
+	border-bottom: 1px solid #e7cc8b;
+}
+
+
+/* And here begins the Wordpress fun.
+-------------------------------------------------------------------------------*/
+
+#page-wrap {width: 960px; margin: 20px auto;}
+
+.post {}
+
+.entry-content {}
+.entry-content a {}
+.entry-content a:hover {}
+
+.post-edit-link {
+	display: block;
+}
+
+#meta {}
+.postmetadata {}
+
+#sidebar {}
+
+.navgation {}
+.next-posts {}
+.prev-posts {}
+
+#searchform {}
+#s {}
+#searchsubmt {}
+	
+ol.commentlist {list-style: none;}
+ol.commentlist li {}
+ol.commentlist li.alt {}
+ol.commentlist li.bypostauthor {}
+ol.commentlist li.byuser {}
+ol.commentlist li.comment-author-admin {}
+ol.commentlist li.comment {border-bottom: 1px dotted #666; padding: 10px;}
+ol.commentlist li.comment div.comment-author {}
+ol.commentlist li.comment div.vcard {}
+ol.commentlist li.comment div.vcard cite.fn {font-style: normal;}
+ol.commentlist li.comment div.vcard cite.fn a.url {}
+ol.commentlist li.comment div.vcard img.avatar {float:right; margin: 0 0 10px 10px;}
+ol.commentlist li.comment div.vcard img.avatar-32 {}
+ol.commentlist li.comment div.vcard img.photo {}
+ol.commentlist li.comment div.vcard span.says {}
+ol.commentlist li.comment div.commentmetadata {}
+ol.commentlist li.comment div.comment-meta {font-size: 10px;}
+ol.commentlist li.comment div.comment-meta a {color: #ccc;}
+ol.commentlist li.comment p {}
+ol.commentlist li.comment ul {}
+ol.commentlist li.comment div.reply {font-size: 11px;}
+ol.commentlist li.comment div.reply a {font-weight: bold;}
+ol.commentlist li.comment ul.children {list-style: none; margin: 10px 0 0;}
+ol.commentlist li.comment ul.children li {}
+ol.commentlist li.comment ul.children li.alt {}
+ol.commentlist li.comment ul.children li.bypostauthor {}
+ol.commentlist li.comment ul.children li.byuser {}
+ol.commentlist li.comment ul.children li.comment {}
+ol.commentlist li.comment ul.children li.comment-author-admin {}
+ol.commentlist li.comment ul.children li.depth-2 {border-left: 5px solid #555; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-3 {border-left: 5px solid #999; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-4 {border-left: 5px solid #bbb; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-5 {}
+ol.commentlist li.comment ul.children li.odd {}
+ol.commentlist li.even {background: #fff;}
+ol.commentlist li.odd {background: #f6f6f6;}
+ol.commentlist li.parent {border-left: 5px solid #111;}
+ol.commentlist li.thread-alt {}
+ol.commentlist li.thread-even {}
+ol.commentlist li.thread-odd {}
+
+.clear {
+	clear: both;
+}
+
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+* { background: #fff !important; color: #444 !important; text-shadow: none !important; }
+  body { background-color: #fff; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; } 
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+
+header,
+#logoBottom,
+#hero,
+#subNavigation,
+#pageOptions,
+section#promo,
+footer {
+display: none;
+}
+
+#main {
+padding-top: 0px;
+}
+
+
+}
+
+#oneCol.promo-page {
+	background: #FFF url(images/try-them-free-bg.jpg) no-repeat 0 0;
+	min-height: 767px;
+}
+
+#oneCol.promo-page #content {
+	width: 480px;
+	padding: 0;
+	margin-top: 130px;
+	margin-left: 445px;
+}
+
+#oneCol.promo-page #content #gform_wrapper_1 {
+	margin-top: 50px;
+	padding: 0 20px;
+}
+
+.gform_wrapper .left_label .gfield_label {
+	margin: 0 20px 0 0 !important;
+	width: 250px !important;
+}
+
+#input_1_5 li {
+	float: left;
+}
+
+#input_1_5 li input[type="radio"] {
+	margin-left: 4px;
+}
+
+#input_1_5 li.gchoice_5_0 {
+	margin-right: 20px;
+}
+
+/* Recipe Search
+-------------------------------------------------------------------------------*/
+
+form.recipe-search .field {
+	float: left;
+}
+
+form.recipe-search select#course {
+	margin-left: 0;
+}
+
+.wp-pagenavi {
+	margin-bottom: 15px;
+}
+
+.wp-pagenavi span.pages {
+	color: #ad1435;
+	border: 0;
+}
+
+.wp-pagenavi span.current, .wp-pagenavi a {
+	border: 1px solid #e6ca86;
+	text-transform: uppercase;
+	color: #e6ca86;
+	background: #ad1435;
+}
+
+/* Media queries!
+-------------------------------------------------------------------------------*/
+
+/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+	
+		
+}
+
+@media all and (orientation: portrait) {
+	
+}
+
+@media all and (orientation: landscape) {
+	
+}
